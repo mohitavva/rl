@@ -1,0 +1,30 @@
+Title: K-arm bandit problem for a news value maximiser. 
+Avva Adinarayana Mohit, 21011101027, AI & DS - A
+
+A news value maximiser: Politically and commercially affiliated media companies are tasked with maximizing the views for certain articles more than others. Build a system that maximises the views for these “aligned” articles.
+
+K-arm bandit system can be used by a politically and commercially affiliated company to maximize the views for certain articles that they want to promote. 
+This kind of a system can learn the preferences of the audiences and the political/commercial affiliation depending on the "requirement"
+This enables to selectively recommend news articles that are more valuable to the media company and also recommend news articles that are relevant to the users/ do not "repel" the users. 
+
+Probelm statement:
+1. There are K different news articles that can be recommended to any user.
+
+2. We can assign each article a political score or "value" to a company that is affected by their political/commercial stance. 
+Each article i has two key attributes:
+a) An unknown user preference distribution with mean μi.
+b) A known company value vi (higher for "aligned" articles).
+Any "pro" stance articles can be assigned a positive score for the "reward" this will encourage the "bandit" to select articles that have a positive score. 
+Any articles that do not represent the political/commercial stance of the media company can be assigned a negative score. This represents the penalty imposed when the right decision is not made. 
+
+3. This system must decide which article to recommend to a user at each interaction with an aim to maximize views by recommending articles the user might be interested in. It must balance the exploration of new articles to learn user preferences and the exploitation of known preferences to recommend articles with a greater reward. 
+The goal is to maximize the cumulative reward R = Σ(ri * vi), where ri is the user engagement (e.g, view time, clicks, retention rate and other engagement parameters) for article i.
+
+4. We can introduce an additional parameter that controls the exploitation-exploration parameters. Alpha (α) can be used for this, a higher value for α encourages the exploration, then gradually we can reduce this to increase exploitation. 
+
+5. We can create a reward score that consideres both the user interaction and company value as parameters as shown: reward = w1*(user_satisfaction) + w2*(company_value)
+w1 and w2 can be modified accordingly to meet the parameters. 
+
+
+Reference: https://arxiv.org/pdf/1003.0146v2, Google
+
